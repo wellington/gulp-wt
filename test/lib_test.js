@@ -1,6 +1,6 @@
 'use strict';
 var fs = require('fs'),
-  compass = require('../lib/compass'),
+  lib = require('../lib/lib'),
   helpers = require('../lib/helpers'),
   path = require('path'),
   iconv = require('iconv-lite');
@@ -23,13 +23,13 @@ var read_file = function(filepath) {
   }
 };
 
-describe('gulp-compass plugin', function() {
-  describe('compass command', function() {
+describe('gulp-wt plugin', function() {
+  describe('wt command', function() {
     var actual, expected;
     this.timeout(60000);
 
     it('compile scss to css', function(done) {
-      compass(path.join(__dirname, 'sass/compile.scss'), {
+      lib(path.join(__dirname, 'sass/compile.scss'), {
         project: __dirname,
         style: 'compressed',
         css: 'css',
@@ -46,7 +46,7 @@ describe('gulp-compass plugin', function() {
     });
 
     it('compile multiple scss to multiple css', function(done) {
-      compass([path.join(__dirname, 'sass/compile.scss'), path.join(__dirname, 'sass/simple.sass')], {
+      lib([path.join(__dirname, 'sass/compile.scss'), path.join(__dirname, 'sass/simple.sass')], {
         project: __dirname,
         style: 'compressed',
         css: 'css',
@@ -66,7 +66,7 @@ describe('gulp-compass plugin', function() {
     });
 
     it('compile sass to css', function(done) {
-      compass(path.join(__dirname, 'sass/simple.sass'), {
+      lib(path.join(__dirname, 'sass/simple.sass'), {
         project: __dirname,
         style: 'compressed',
         css: 'css',
@@ -83,7 +83,7 @@ describe('gulp-compass plugin', function() {
     });
 
     it('test import_path option', function(done) {
-      compass(path.join(__dirname, 'sass/import.scss'), {
+      lib(path.join(__dirname, 'sass/import.scss'), {
         project: __dirname,
         style: 'compressed',
         import_path: 'bower_components'
@@ -98,7 +98,7 @@ describe('gulp-compass plugin', function() {
     });
 
     it('test import_path array option', function(done) {
-      compass(path.join(__dirname, 'sass/import2.scss'), {
+      lib(path.join(__dirname, 'sass/import2.scss'), {
         project: __dirname,
         style: 'compressed',
         import_path: ['bower_components', 'bower_components2']
@@ -113,7 +113,7 @@ describe('gulp-compass plugin', function() {
     });
 
     // it('test require option', function(done) {
-    //   compass(path.join(__dirname, 'sass/require.scss'), {
+    //   lib(path.join(__dirname, 'sass/require.scss'), {
     //     project: __dirname,
     //     style: 'compressed',
     //     require: 'susy'
@@ -128,8 +128,8 @@ describe('gulp-compass plugin', function() {
     //   });
     // });
 
-    it('test spriting with compass', function(done) {
-      compass(path.join(__dirname, 'sass/spriting.scss'), {
+    it('test spriting with wt', function(done) {
+      lib(path.join(__dirname, 'sass/spriting.scss'), {
         project: __dirname,
         style: 'compressed',
         css: 'css',
@@ -147,7 +147,7 @@ describe('gulp-compass plugin', function() {
     });
 
     // it('test multiple require option', function(done) {
-    //   compass(path.join(__dirname, 'sass/multiple-require.scss'), {
+    //   lib(path.join(__dirname, 'sass/multiple-require.scss'), {
     //     project: __dirname,
     //     style: 'compressed',
     //     require: ['susy', 'modular-scale']
@@ -163,7 +163,7 @@ describe('gulp-compass plugin', function() {
     // });
 
     // it('test config_file option and overwrite output style', function(done) {
-    //   compass(path.join(__dirname, 'sass/base/compile3.scss'), {
+    //   lib(path.join(__dirname, 'sass/base/compile3.scss'), {
     //     project: __dirname,
     //     config_file: path.join(__dirname, 'config.rb'),
     //     style: 'expanded'
@@ -179,7 +179,7 @@ describe('gulp-compass plugin', function() {
     // });
 
     it('should normalize ./ paths in sass and css options', function(done) {
-      compass(path.join(__dirname, 'sass/simple.sass'), {
+      lib(path.join(__dirname, 'sass/simple.sass'), {
         project: __dirname,
         sass: './sass',
         css: './css',
@@ -196,7 +196,7 @@ describe('gulp-compass plugin', function() {
     });
 
     it('should allow absolute paths in sass and css options', function(done) {
-      compass(path.join(__dirname, 'sass/simple2.sass'), {
+      lib(path.join(__dirname, 'sass/simple2.sass'), {
         project: __dirname,
         sass: __dirname + '/sass',
         css: __dirname + '/css',
@@ -208,7 +208,7 @@ describe('gulp-compass plugin', function() {
     });
 
     it.only('import a directory’s contents', function(done) {
-      compass(path.join(__dirname, 'sass/partial.scss'), {
+      lib(path.join(__dirname, 'sass/partial.scss'), {
         project: __dirname,
         style: 'compressed',
         css: 'css',
@@ -228,7 +228,7 @@ describe('gulp-compass plugin', function() {
     });
 
     it('test error content', function(done) {
-      compass(path.join(__dirname, 'sass/error.scss'), {
+      lib(path.join(__dirname, 'sass/error.scss'), {
         project: __dirname,
         config_file: path.join(__dirname, 'config.rb'),
         style: 'compressed',
@@ -244,7 +244,7 @@ describe('gulp-compass plugin', function() {
 
   });
 
-  describe('compass helper', function() {
+  describe('wt helper', function() {
     this.timeout(60000);
     it('test helper isArray', function(done) {
       helpers.isArray(['test']).should.be.ok;
@@ -253,9 +253,9 @@ describe('gulp-compass plugin', function() {
     });
 
     it('test helper command', function(done) {
-      helpers.command('compass').should.not.be.empty;
-      helpers.command('compass_test').should.not.be.ok;
-      helpers.command('compass_test', function(code, stdout, stderr, new_path) {
+      helpers.command('wt').should.not.be.empty;
+      helpers.command('wt_test').should.not.be.ok;
+      helpers.command('wt_test', function(code, stdout, stderr, new_path) {
         code.should.equal(127);
         stdout.should.be.empty;
         stderr.should.not.be.empty;
