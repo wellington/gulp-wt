@@ -1,4 +1,4 @@
-# [gulp](http://gulpjs.com/)-compass
+# [gulp](http://gulpjs.com/)-wt
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status](https://travis-ci.org/appleboy/gulp-compass.png?branch=master)](https://travis-ci.org/appleboy/gulp-compass) [![Dependency Status](https://david-dm.org/appleboy/gulp-compass.svg)](https://david-dm.org/appleboy/gulp-compass) [![Coverage Status](https://coveralls.io/repos/appleboy/gulp-compass/badge.svg?branch=master)](https://coveralls.io/r/appleboy/gulp-compass?branch=master)
 
@@ -290,7 +290,7 @@ PS. Past compass versions (prior to 1.0.0) do not support `--sourcemap` flag, pl
 
 **default:** compile
 
-**description:** Support compass primary commands: compile or watch. 
+**description:** Support compass primary commands: compile or watch.
 
 
 ## Running tests

@@ -1,16 +1,16 @@
 {
-  "name": "gulp-compass",
-  "version": "2.1.0",
-  "description": "Compile Compass files",
+  "name": "gulp-wt",
+  "version": "0.0.1",
+  "description": "Use gulp with wellington",
   "main": "lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/appleboy/gulp-compass.git"
+    "url": "git://github.com/wellington/gulp-wt.git"
   },
   "keywords": [
     "gulp",
     "gulpplugin",
-    "compass",
+    "wellington-bin",
     "scss",
     "sass",
     "css",
@@ -18,12 +18,12 @@
     "preprocessor",
     "style"
   ],
-  "author": "Bo-Yi Wu",
+  "author": "Drew Wells",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/appleboy/gulp-compass/issues"
+    "url": "https://github.com/wellington/gulp-wt/issues"
   },
-  "homepage": "https://github.com/appleboy/gulp-compass",
+  "homepage": "https://github.com/wellington/gulp-wt",
   "dependencies": {
     "gulp-util": "^3.0.4",
     "through2": "^0.6.5",
