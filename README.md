@@ -1,14 +1,14 @@
 # [gulp](http://gulpjs.com/)-wt
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status](https://travis-ci.org/appleboy/gulp-compass.png?branch=master)](https://travis-ci.org/appleboy/gulp-compass) [![Dependency Status](https://david-dm.org/appleboy/gulp-compass.svg)](https://david-dm.org/appleboy/gulp-compass) [![Coverage Status](https://coveralls.io/repos/appleboy/gulp-compass/badge.svg?branch=master)](https://coveralls.io/r/appleboy/gulp-compass?branch=master)
+[![NPM version][npm-image]][npm-url]
 
-[![NPM](https://nodei.co/npm/gulp-compass.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-compass/)
+[![NPM](https://nodei.co/npm/gulp-wt.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-wt/)
 
 > Compile Sass to CSS using Compass
 
-[npm-url]: https://www.npmjs.org/package/gulp-compass
-[npm-image]: http://img.shields.io/npm/v/gulp-compass.svg
-[downloads-image]: http://img.shields.io/npm/dm/gulp-compass.svg
+[npm-url]: https://www.npmjs.org/package/gulp-wt
+[npm-image]: http://img.shields.io/npm/v/gulp-wt.svg
+[downloads-image]: http://img.shields.io/npm/dm/gulp-wt.svg
 
 ## Requirements
 
