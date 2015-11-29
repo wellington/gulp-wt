@@ -4,7 +4,7 @@
 
 [![NPM](https://nodei.co/npm/gulp-wt.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-wt/)
 
-> Compile Sass to CSS using Compass
+> Compile Sass to CSS with gulp!
 
 [npm-url]: https://www.npmjs.org/package/gulp-wt
 [npm-image]: http://img.shields.io/npm/v/gulp-wt.svg
@@ -19,14 +19,14 @@ $ gem update --system
 $ gem install compass
 ```
 
-Please refer the [user guide](http://compass-style.org/install/)
+Please refer the [user guide](http://getwt.io/docs/usage/)
 
 ## Installation
 
-Install with [npm](https://npmjs.org/package/gulp-compass)
+Install with [npm](https://npmjs.org/package/gulp-wt)
 
 ```
-$ npm install gulp-compass --save-dev
+$ npm install gulp-wt
 ```
 
 ## Usage
@@ -39,11 +39,11 @@ Please **make sure** to add ``css`` and ``sass`` options with the same value in 
 * ``sass`` default value is ``sass``.
 
 ```javascript
-var compass = require('gulp-compass');
+var wt = require('gulp-wt');
 
-gulp.task('compass', function() {
+gulp.task('wt', function() {
   gulp.src('./src/*.scss')
-    .pipe(compass({
+    .pipe(wt({
       config_file: './config.rb',
       css: 'stylesheets',
       sass: 'sass'
@@ -57,12 +57,12 @@ gulp.task('compass', function() {
 set your project path.
 
 ```javascript
-var compass = require('gulp-compass'),
+var wt = require('gulp-wt'),
   path = require('path');
 
-gulp.task('compass', function() {
+gulp.task('wt', function() {
   gulp.src('./src/*.scss')
-    .pipe(compass({
+    .pipe(wt({
       project: path.join(__dirname, 'assets'),
       css: 'css',
       sass: 'sass'
@@ -71,15 +71,15 @@ gulp.task('compass', function() {
 });
 ```
 
-set your compass settings.
+set your wt settings.
 
 ```javascript
-var compass = require('gulp-compass'),
+var wt = require('gulp-wt'),
   minifyCSS = require('gulp-minify-css');
 
-gulp.task('compass', function() {
+gulp.task('wt', function() {
   gulp.src('./src/*.scss')
-    .pipe(compass({
+    .pipe(wt({
       css: 'app/assets/css',
       sass: 'app/assets/sass',
       image: 'app/assets/images'
@@ -92,12 +92,12 @@ gulp.task('compass', function() {
 Support multiple require option
 
 ```javascript
-var compass = require('gulp-compass'),
+var wt = require('gulp-wt'),
   minifyCSS = require('gulp-minify-css');
 
-gulp.task('compass', function() {
+gulp.task('wt', function() {
   gulp.src('./src/*.scss')
-    .pipe(compass({
+    .pipe(wt({
       css: 'app/assets/css',
       sass: 'app/assets/sass',
       image: 'app/assets/images',
@@ -108,15 +108,15 @@ gulp.task('compass', function() {
 });
 ```
 
-Support return the output of the Compass as the callback
+Support return the output of the Wt as the callback
 
 ```javascript
-var compass = require('gulp-compass'),
+var wt = require('gulp-wt'),
   minifyCSS = require('gulp-minify-css');
 
-gulp.task('compass', function() {
+gulp.task('wt', function() {
   gulp.src('./src/*.scss')
-    .pipe(compass({
+    .pipe(wt({
       css: 'app/assets/css',
       sass: 'app/assets/sass',
       image: 'app/assets/images'
@@ -131,21 +131,21 @@ gulp.task('compass', function() {
 });
 ```
 
-`gulp-compass` with [gulp-plumber](https://github.com/floatdrop/gulp-plumber)
+`gulp-wt` with [gulp-plumber](https://github.com/floatdrop/gulp-plumber)
 
 ```javascript
-var compass = require('gulp-compass'),
+var wt = require('gulp-wt'),
   plumber = require('gulp-plumber'),
   minifyCSS = require('gulp-minify-css');
 
-gulp.task('compass', function() {
+gulp.task('wt', function() {
   gulp.src('./src/*.scss')
     .pipe(plumber({
       errorHandler: function (error) {
         console.log(error.message);
         this.emit('end');
     }}))
-    .pipe(compass({
+    .pipe(wt({
       css: 'app/assets/css',
       sass: 'app/assets/sass',
       image: 'app/assets/images'
@@ -223,7 +223,7 @@ One of: nested, expanded, compact, or compressed.
 
 **format:** ``string`` or ``array``
 
-**description:** The directory where you keep external Compass plugins or extensions that you would like to make available using the `@import` function. Common use case would be setting this to your `bower_components` directory for example. It is relative to the ``project`` option.
+**description:** The directory where you keep external Wt plugins or extensions that you would like to make available using the `@import` function. Common use case would be setting this to your `bower_components` directory for example. It is relative to the ``project`` option.
 
 #### require
 
@@ -231,7 +231,7 @@ One of: nested, expanded, compact, or compressed.
 
 **format:** ``string`` or ``array``
 
-**description:** Require the given Ruby library before running commands. This is used to access Compass plugins without having a project configuration file.
+**description:** Require the given Ruby library before running commands. This is used to access Wt plugins without having a project configuration file.
 
 #### load_all
 
@@ -239,23 +239,17 @@ One of: nested, expanded, compact, or compressed.
 
 **description:** Load all the frameworks or extensions found in the FRAMEWORKS_DIR directory.
 
-#### bundle_exec
-
-**default:** false
-
-**description:** Run compass compile with [bundle exec](http://bundler.io/v1.5/man/bundle-exec.1.html): ``bundle exec compass compile``.
-
 #### sourcemap
 
 **default:** false
 
 **description:** Generate standard JSON source maps.
 
-PS. Past compass versions (prior to 1.0.0) do not support `--sourcemap` flag, please update sass and compass as the following version.
+PS. Past wt versions (prior to 1.0.0) do not support `--sourcemap` flag, please update sass and wt as the following version.
 
 ```
 * sass (3.3.3)
-* compass (1.0.1)
+* wt (1.0.2)
 ```
 
 #### time
@@ -290,15 +284,12 @@ PS. Past compass versions (prior to 1.0.0) do not support `--sourcemap` flag, pl
 
 **default:** compile
 
-**description:** Support compass primary commands: compile or watch.
+**description:** Support wt primary commands: compile or watch.
 
 
 ## Running tests
 
 ```
-$ gem install compass
-$ gem install susy
-$ gem install sass-globbing
-$ gem install modular-scale
+$ npm i
 $ npm test
 ```
