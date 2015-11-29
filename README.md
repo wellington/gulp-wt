@@ -12,7 +12,7 @@
 
 ## Requirements
 
-`gulp-compass` requires the compass ruby gem in order to compile compass. This can easily be installed via Terminal.
+`gulp-wt` has dependencies on wellington. This is provided by `wellington-bin`.
 
 ```
 $ gem update --system
