@@ -14,11 +14,6 @@
 
 `gulp-wt` has dependencies on wellington. This is provided by `wellington-bin`.
 
-```
-$ gem update --system
-$ gem install compass
-```
-
 Please refer the [user guide](http://getwt.io/docs/usage/)
 
 ## Installation
@@ -30,29 +25,6 @@ $ npm install gulp-wt
 ```
 
 ## Usage
-
-### Load config from config.rb
-
-Please **make sure** to add ``css`` and ``sass`` options with the same value in ``config.rb`` since ``compass`` can't output css result directly.
-
-* ``css`` default value is ``css``.
-* ``sass`` default value is ``sass``.
-
-```javascript
-var wt = require('gulp-wt');
-
-gulp.task('wt', function() {
-  gulp.src('./src/*.scss')
-    .pipe(wt({
-      config_file: './config.rb',
-      css: 'stylesheets',
-      sass: 'sass'
-    }))
-    .pipe(gulp.dest('app/assets/temp'));
-});
-```
-
-### Load config without config.rb
 
 set your project path.
 
