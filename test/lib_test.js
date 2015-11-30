@@ -207,7 +207,7 @@ describe('gulp-wt plugin', function() {
       });
     });
 
-    it.only('import a directory’s contents', function(done) {
+    it('import a directory’s contents', function(done) {
       lib(path.join(__dirname, 'sass/partial.scss'), {
         project: __dirname,
         style: 'compressed',
