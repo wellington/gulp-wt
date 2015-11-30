@@ -33,11 +33,33 @@ describe('gulp-wt plugin', function() {
         project: __dirname,
         style: 'compressed',
         css: 'css',
-        sass: 'sass',
-        logging: false
+        sass: 'sass'
       }, function(code, stdout, stderr, new_path) {
         code.should.be.equal(0);
         new_path.should.eql([__dirname + '/css/compile.css']);
+        actual = read_file(path.join(__dirname, 'css/compile.css'));
+        expected = read_file(path.join(__dirname, 'expected/compile.css'));
+        actual.should.equal(expected);
+        done();
+      });
+    });
+
+    it('compile stream scss to css', function(done) {
+      lib(new Buffer('div { p { color: red; }}'), {
+        project: __dirname,
+        style: 'compressed',
+        css: 'css',
+        sass: 'sass',
+        logging: true
+      }, function(code, stdout, stderr, new_path) {
+        code.should.be.equal(0);
+        // FIXME: after `Reading from stdin` is removed, this can be
+        // strict comparison
+        var out = 'div p{color:red}\n';
+        if (stdout.indexOf(out) == -1) {
+          stdout.should.equal(out);
+        }
+        // new_path.should.eql([__dirname + '/css/compile.css']);
         actual = read_file(path.join(__dirname, 'css/compile.css'));
         expected = read_file(path.join(__dirname, 'expected/compile.css'));
         actual.should.equal(expected);
