@@ -1,5 +1,6 @@
 'use strict';
 var fs = require('fs'),
+  stream = require('stream'),
   lib = require('../lib/lib'),
   helpers = require('../lib/helpers'),
   path = require('path'),
@@ -44,8 +45,11 @@ describe('gulp-wt plugin', function() {
       });
     });
 
-    it('compile stream scss to css', function(done) {
-      lib(new Buffer('div { p { color: red; }}'), {
+    it.only('compile stdin scss to css', function(done) {
+      var s = new stream.Readable();
+      s.push('div { p { color: red; }}');
+      s.push(null);
+      lib(s, {
         project: __dirname,
         style: 'compressed',
         css: 'css',
